@@ -2,19 +2,24 @@
     'use strict';
 
     angular
-        .module('myapp')
+        .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$log'];
+    HomeController.$inject = ['$log', '$state'];
 
-    function HomeController($log) {
+    function HomeController($log, $state) {
         var vm = this;
         vm.title = 'Hello from AngularJS Home Controller';
+        vm.goToState = goToState;
 
         activate();
 
         ////////////////
 
         function activate() {}
+
+        function goToState(stateName) {
+            $state.go(stateName);
+        }
     }
 })();

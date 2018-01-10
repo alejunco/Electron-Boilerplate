@@ -1,2 +1,2 @@
 var config = module.exports = {};
-config.showDevTools = true;
+config.showDevTools = false;

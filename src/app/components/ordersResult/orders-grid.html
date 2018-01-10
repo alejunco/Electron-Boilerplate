@@ -1,0 +1,17 @@
+<ul ng-repeat="result in vm.data track by $index">
+  <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch="">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Card {{result}}</span>
+        <span class="md-subhead">Medium</span>
+      </md-card-title-text>
+      <md-card-title-media>
+        <div class="md-media-sm card-media"></div>
+      </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button class="md-primary">Execute</md-button>
+      <md-button class="md-warn">Remove</md-button>
+    </md-card-actions>
+  </md-card>
+</ul>

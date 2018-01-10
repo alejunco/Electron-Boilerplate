@@ -1,0 +1,93 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- <h1>Hello From Orders Controller</h1>
+
+
+<div>
+  <ul ng-repeat="result in vm.results track by $index">
+    <li>{{result}}</li>
+  </ul>
+</div> -->
+
+<div class="bs-container">
+  <div class="bs-search-area">
+    <div layout="row" layout-align="center center">
+      <md-content md-theme="docs-dark" layout="row" layout-align="center center">
+        <md-input-container md-no-float class="md-block md-display-3">
+          <input style="height: 100px;" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()" placeholder="Order Number">
+          <!-- <label>Order Number</label> -->
+        </md-input-container>
+      </md-content>
+      <!-- <input type="text" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()"> -->
+    </div>
+    <div style="padding: 10px; display:grid; grid-template-columns: repeat(3,1fr); grid-gap: 10px 10px">
+      <div ng-repeat="key in vm.keys" ng-switch="key">
+        <div style="height:100%" ng-switch-when="Delete">
+          <md-button style="height:100%; width:100%" class="md-raised keyboar-btn">
+            <md-icon>backspace</md-icon>
+          </md-button>
+        </div>
+        <div style="height:100%" ng-switch-when="Enter">
+          <md-button style="height:100%; width:100%" class="md-raised keyboar-btn">
+            <md-icon>keyboard_return</md-icon>
+          </md-button>
+        </div>
+        <div style="height:100%" ng-switch-when="Clear">
+          <md-button style="height:100%; width:100%" class="md-raised keyboar-btn">
+            <md-icon>clear</md-icon>
+          </md-button>
+        </div>
+        <div ng-switch-when="-"></div>
+        <div style="height:100%" ng-switch-default>
+          <md-button style="height:100%; width:100%; font-size:1.7em" class="md-raised key-char keyboar-btn">{{key}}</md-button>
+        </div>
+      </div>
+      <!-- <div style="display:grid; grid-template-columns: repeat(3,1fr)" ng-repeat="row in vm.keys" layout=row>
+        <div ng-repeat="key in row" ng-switch="key" ng-class="vm.getKeyClass(key)">
+          <div ng-switch-when="Delete">
+            <md-button class="md-raised key-bksp">
+              <md-icon>backspace</md-icon>
+            </md-button>
+          </div>
+          <div ng-switch-when="Enter">
+            <md-button class="md-raised key-bksp">
+              <md-icon>keyboard_return</md-icon>
+            </md-button>
+          </div>
+          <div ng-switch-when="Clear">
+            <md-button class="md-raised key-bksp">
+              <md-icon>clear</md-icon>
+            </md-button>
+          </div>
+          <div ng-switch-when="-"></div>
+          <div ng-switch-default>
+            
+      <md-button class="md-raised key-char">{{key}}</md-button>
+    </div>
+  </div>
+</div> -->
+    </div>
+    <div>
+      <md-button class="md-raised md-warn" ng-click="vm.search()">Search</md-button>
+    </div>
+  </div>
+  <div class="bs-result-area">
+    <!-- <ul ng-repeat="result in vm.results track by $index">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch="">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Card {{result}}</span>
+            <span class="md-subhead">Medium</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-primary">Execute</md-button>
+          <md-button class="md-warn">Remove</md-button>
+        </md-card-actions>
+      </md-card>
+    </ul> -->
+    <orders-grid data="vm.results"></orders-grid>
+  </div>
+</div>
