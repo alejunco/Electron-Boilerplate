@@ -12,60 +12,15 @@
   <div class="bs-search-area">
     <div layout="row" layout-align="center center">
       <md-content md-theme="docs-dark" layout="row" layout-align="center center">
-        <md-input-container md-no-float class="md-block md-display-3">
-          <input style="height: 100px;" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()" placeholder="Order Number">
-          <!-- <label>Order Number</label> -->
+        <md-input-container md-no-float class="md-block" ng-class="{'md-display-3':vm.mdMedia('gt-md'),'md-display-1':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
+          <input style="height: 60px;" type="text" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()" placeholder="Order Number">
         </md-input-container>
       </md-content>
-      <!-- <input type="text" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()"> -->
     </div>
-    <div style="padding: 10px; display:grid; grid-template-columns: repeat(3,1fr); grid-gap: 10px 10px">
-      <div ng-repeat="key in vm.keys" ng-switch="key">
-        <div style="height:100%" ng-switch-when="Delete">
-          <md-button style="height:100%; width:100%" class="md-raised keyboar-btn">
-            <md-icon>backspace</md-icon>
-          </md-button>
-        </div>
-        <div style="height:100%" ng-switch-when="Enter">
-          <md-button style="height:100%; width:100%" class="md-raised keyboar-btn">
-            <md-icon>keyboard_return</md-icon>
-          </md-button>
-        </div>
-        <div style="height:100%" ng-switch-when="Clear">
-          <md-button style="height:100%; width:100%" class="md-raised keyboar-btn">
-            <md-icon>clear</md-icon>
-          </md-button>
-        </div>
-        <div ng-switch-when="-"></div>
-        <div style="height:100%" ng-switch-default>
-          <md-button style="height:100%; width:100%; font-size:1.7em" class="md-raised key-char keyboar-btn">{{key}}</md-button>
-        </div>
-      </div>
-      <!-- <div style="display:grid; grid-template-columns: repeat(3,1fr)" ng-repeat="row in vm.keys" layout=row>
-        <div ng-repeat="key in row" ng-switch="key" ng-class="vm.getKeyClass(key)">
-          <div ng-switch-when="Delete">
-            <md-button class="md-raised key-bksp">
-              <md-icon>backspace</md-icon>
-            </md-button>
-          </div>
-          <div ng-switch-when="Enter">
-            <md-button class="md-raised key-bksp">
-              <md-icon>keyboard_return</md-icon>
-            </md-button>
-          </div>
-          <div ng-switch-when="Clear">
-            <md-button class="md-raised key-bksp">
-              <md-icon>clear</md-icon>
-            </md-button>
-          </div>
-          <div ng-switch-when="-"></div>
-          <div ng-switch-default>
-            
-      <md-button class="md-raised key-char">{{key}}</md-button>
+    <div>
+      <bs-numpad bs-model="vm.query" bs-keyup="vm.keyup" bs-keydown="vm.keydown"></bs-numpad>
     </div>
-  </div>
-</div> -->
-    </div>
+
     <div>
       <md-button class="md-raised md-warn" ng-click="vm.search()">Search</md-button>
     </div>
