@@ -1,23 +1,17 @@
 <div style="height:95%; padding: 10px; display:grid; grid-auto-rows: minmax(50px,auto); grid-template-columns: repeat(3,1fr); grid-gap: 10px 10px">
-    <div ng-repeat="key in vm.keys" ng-switch="key">
+    <div ng-repeat="key in vm.keys track by $index" ng-switch="key">
         <div style="height:100%" ng-switch-when="Delete">
-            <md-button style="height:100%; width:100%" class="md-raised keyboar-btn" ng-mouseup="vm.mouseup($event, key)" ng-mousedown="vm.mousedown($event, key)">
+            <md-button style="height:100%; width:100%" class="md-raised keyboar-btn md-primary md-hue-2" ng-mouseup="vm.mouseup($event, key)" ng-mousedown="vm.mousedown($event, key)">
                 <md-icon>backspace</md-icon>
             </md-button>
         </div>
-        <div style="height:100%" ng-switch-when="Enter">
-            <md-button style="height:100%; width:100%" class="md-raised keyboar-btn" ng-mouseup="vm.mouseup($event, key)" ng-mousedown="vm.mousedown($event, key)">
-                <md-icon>keyboard_return</md-icon>
-            </md-button>
-        </div>
         <div style="height:100%" ng-switch-when="Clear">
-            <md-button style="height:100%; width:100%" class="md-raised keyboar-btn" ng-mouseup="vm.mouseup($event, key)" ng-mousedown="vm.mousedown($event, key)">
-                <md-icon>clear</md-icon>
-            </md-button>
+            <md-button style="height:100%; width:100%; font-size:1.7em" class="md-raised key-char keyboar-btn md-primary md-hue-2" ng-mouseup="vm.mouseup($event, key)"
+                ng-mousedown="vm.mousedown($event, key)">CLR</md-button>
         </div>
         <div ng-switch-when="-"></div>
         <div style="height:100%" ng-switch-default>
-            <md-button style="height:100%; width:100%; font-size:1.7em" class="md-raised key-char keyboar-btn" ng-mouseup="vm.mouseup($event, key)"
+            <md-button style="height:100%; width:100%; font-size:1.7em" class="md-raised key-char keyboar-btn md-primary " ng-mouseup="vm.mouseup($event, key)"
                 ng-mousedown="vm.mousedown($event, key)">{{key}}</md-button>
         </div>
     </div>

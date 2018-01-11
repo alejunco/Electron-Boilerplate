@@ -1,48 +1,19 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<!-- <h1>Hello From Orders Controller</h1>
-
-
-<div>
-  <ul ng-repeat="result in vm.results track by $index">
-    <li>{{result}}</li>
-  </ul>
-</div> -->
-
 <div class="bs-container">
   <div class="bs-search-area">
     <div layout="row" layout-align="center center">
-      <md-content md-theme="docs-dark" layout="row" layout-align="center center">
-        <md-input-container md-no-float class="md-block" ng-class="{'md-display-3':vm.mdMedia('gt-md'),'md-display-1':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
-          <input style="height: 60px;" type="text" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()" placeholder="Order Number">
+      <md-content layout="row" layout-align="center center">
+        <md-input-container md-no-float class="md-block md-accent" ng-class="{'md-display-4':vm.mdMedia('gt-md'),'md-display-1':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
+          <input style="height: 112px;  font-family: 'Roboto Slab', serif; text-align:center" type="text" ng-model="vm.query" ng-keyup="vm.keyup()"
+            ng-keydown="vm.keydown()" placeholder="Order Number">
         </md-input-container>
       </md-content>
     </div>
     <div>
       <bs-numpad bs-model="vm.query" bs-keyup="vm.keyup" bs-keydown="vm.keydown"></bs-numpad>
     </div>
-
-    <div>
-      <md-button class="md-raised md-warn" ng-click="vm.search()">Search</md-button>
-    </div>
   </div>
-  <div class="bs-result-area">
-    <!-- <ul ng-repeat="result in vm.results track by $index">
-      <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch="">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Card {{result}}</span>
-            <span class="md-subhead">Medium</span>
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-sm card-media"></div>
-          </md-card-title-media>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button class="md-primary">Execute</md-button>
-          <md-button class="md-warn">Remove</md-button>
-        </md-card-actions>
-      </md-card>
-    </ul> -->
+  <md-content class="bs-gt-md md-padding" style="height:100%; overflow: hidden;" layout="column" layout-align="center center">
     <orders-grid data="vm.results"></orders-grid>
-  </div>
+  </md-content>
 </div>

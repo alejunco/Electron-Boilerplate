@@ -92,8 +92,8 @@ function configureAutoUpdater() {
 function createWindow() {
 
     mainWindow = new browserWindow({
-        width: 1024,
-        height: 768
+        width: 800,
+        height: 600
     });
 
     if (cfg.showDevTools) {

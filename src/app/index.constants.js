@@ -3,6 +3,6 @@
 
   angular
     .module('app')
-    .constant('malarkey', "My Example Constant");
+    .constant('BsApi', {url:"https://bsapi.pinserve.com/api/v2/"});
 
 })();

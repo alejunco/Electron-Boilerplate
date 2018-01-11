@@ -11,9 +11,14 @@
     $logProvider.debugEnabled(true);
 
     //angular material
-    $mdThemingProvider.theme('docs-dark', 'default')
-      .primaryPalette('yellow')
-      .dark();
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue', {
+        'default': '400', 
+      })
+      .accentPalette('deep-orange', {
+        'default': '400' // use shade 200 for default, and keep all other shades the same
+      });
+      // .backgroundPalette('brown');
   }
 
 })();

@@ -33,7 +33,7 @@
     function BsNumpadController($timeout) {
         var vm = this;
         vm.keys = [
-            'Clear', '-', 'Delete', '7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.', 'Enter'
+            '7', '8', '9', '4', '5', '6', '1', '2', '3', 'Clear', '0', 'Delete'
         ];
 
         vm.mouseup = mouseup;

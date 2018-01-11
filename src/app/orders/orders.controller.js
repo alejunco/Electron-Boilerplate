@@ -5,46 +5,50 @@
     .module('app')
     .controller('OrdersController', OrdersController);
 
-  OrdersController.$inject = ['$log', '$timeout', 'OrdersService', '$mdMedia'];
+  OrdersController.$inject = ['$log', '$timeout', 'OrdersService', '$mdMedia', '$scope'];
 
-  function OrdersController($log, $timeout, OrdersService, $mdMedia) {
+  function OrdersController($log, $timeout, OrdersService, $mdMedia, $scope) {
     var vm = this;
-    vm.mdMedia = $mdMedia;
-    // vm.query = '';
     var timeout;
+
+    vm.mdMedia = $mdMedia;
 
     vm.results = [];
 
     vm.keyup = function () {
-      if (vm.query && vm.query !== '') {
+      
         timeout = $timeout(function () {
-          $log.info('Went to search..."' + vm.query + '"');
-          OrdersService.searchOrder(vm.query).then(function (result) {
-            vm.results = result;
+          
+          $scope.$broadcast('updatedQuery', {
+            query: vm.query
           });
+          // OrdersService.pendignOrder(vm.query).then(function (result) {
+          //   vm.results = result;
+          // });
         }, 1000);
-      }
+      
     }
 
     vm.keydown = function () {
       $timeout.cancel(timeout);
     }
 
-    // vm.search = function () {
-    //   $timeout.cancel(timeout);
-    //   if (vm.query) {
-    //     $log.info('Went to search..."' + vm.query + '"');
-    //     $timeout(function () {
-    //       vm.results.push(vm.query);
-    //     }, 100);
-    //   }
-    // }
-
-
     activate();
 
     ////////////////
 
-    function activate() {}
+    function activate() {
+      vm.query = '1188110';
+      $timeout(function () {
+        $scope.$broadcast('updatedQuery', {
+          query: vm.query
+        });
+      }, 1)
+
+      // OrdersService.pendignOrder(vm.query).then(function (result) {
+      //   vm.results = result;
+      // });
+
+    }
   }
 })();
