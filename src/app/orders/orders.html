@@ -1,19 +1,18 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="bs-container">
   <div class="bs-search-area">
-    <div layout="row" layout-align="center center">
-      <md-content layout="row" layout-align="center center">
-        <md-input-container md-no-float class="md-block md-accent" ng-class="{'md-display-4':vm.mdMedia('gt-md'),'md-display-1':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
-          <input style="height: 112px;  font-family: 'Roboto Slab', serif; text-align:center" type="text" ng-model="vm.query" ng-keyup="vm.keyup()"
-            ng-keydown="vm.keydown()" placeholder="Order Number">
-        </md-input-container>
-      </md-content>
-    </div>
-    <div>
+
+    <md-content layout="row" layout-align="center center">
+      <md-input-container md-no-float class="md-block md-accent" ng-class="{'md-display-4':vm.mdMedia('gt-md'),'md-display-1':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
+        <input style="height: 112px;  font-family: 'Roboto Slab', serif; text-align:center" type="text" ng-model="vm.query" ng-keyup="vm.keyup()"
+          ng-keydown="vm.keydown()" placeholder="Order Number">
+      </md-input-container>
+    </md-content>
+    <md-content>
       <bs-numpad bs-model="vm.query" bs-keyup="vm.keyup" bs-keydown="vm.keydown"></bs-numpad>
-    </div>
+    </md-content>
   </div>
-  <md-content class="bs-gt-md md-padding" style="height:100%; overflow: hidden;" layout="column" layout-align="center center">
-    <orders-grid data="vm.results"></orders-grid>
-  </md-content>
+  <div class="bs-result-area">
+    <orders-grid></orders-grid>
+  </div>
 </div>
