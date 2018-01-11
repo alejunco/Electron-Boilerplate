@@ -38,7 +38,7 @@
     ////////////////
 
     function activate() {
-      vm.query = '1188110';
+      vm.query = '1188416';
       $timeout(function () {
         $scope.$broadcast('updatedQuery', {
           query: vm.query

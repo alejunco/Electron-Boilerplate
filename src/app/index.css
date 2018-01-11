@@ -25,8 +25,8 @@ html {
     font-family: 'Roboto Slab', serif;
 }
 
-body{
-    background-color: #cacaca
+body {
+    background-color: #660707
 }
 
 [layout=row] {
@@ -73,29 +73,52 @@ section.jumbotron h1 {
 .bs-container {
     display: grid;
     grid-template-columns: 1.3fr 2fr;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    /* position: absolute; */
 }
 
 .bs-search-area {
+    height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 1fr 4fr;
     grid-gap: 10px 10px;
+    background-color: #ffffff;
 }
 
+.bs-search-area>md-content {
+    background-color: transparent;
+}
+
+.bs-query-input-content {
+    overflow: hidden;
+}
+
+.bs-query-input-content input {
+    height: 100%;
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
+}
+
+.bs-display-4 {
+    font-size: 90px;
+    font-weight: 300;
+    letter-spacing: -0.010em;
+    line-height: 90px;
+}
+
+.bs-display-3 {
+    font-size: 60px;
+    font-weight: 300;
+    letter-spacing: -0.010em;
+    line-height: 60px;
+}
 
 .bs-result-area {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-y: auto;
+    overflow: hidden;
     padding: 10px;
-    background-color: red;
-}
-
-.keyboar-btn {
-    margin: 0;
+    background-color: #1a77a0;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -120,10 +143,6 @@ input[type="number"] {
     font-size: 2.5em;
 }
 
-.bs-gt-md .bs-display-3 {
-    font-size: 3em;
-}
-
 .bs-lt-md .bs-title {
     font-size: 1em;
 }
@@ -140,6 +159,7 @@ input[type="number"] {
     text-align: right;
 }
 
+
 /* .bs-slide {
     transition: all ease-in 0.3s;
 } */
@@ -150,10 +170,11 @@ input[type="number"] {
     opacity: 0;
 }
 
-.bs-slide.ng-enter.ng-enter-active{
+.bs-slide.ng-enter.ng-enter-active {
     transform: translateX(0);
     opacity: 1;
 }
+
 .bs-slide.ng-leave {
     transition: all ease-in 0.35s;
     /* transform: translateX(0); */
@@ -164,3 +185,27 @@ input[type="number"] {
     transform: translateX(400px);
     opacity: 0;
 }
+
+.bs-result-card>md-icon {
+    font-size: 12em
+}
+
+.bs-numpad-btn {
+    height: 100%;
+}
+
+.bs-numpad-btn .md-button {
+    height: 100%;
+    width: 100%;
+    font-size: 1.7em;
+}
+
+.bs-numpad-container {
+    overflow: visible;
+    padding: 10px 15px 10px 10px;
+}
+
+
+/* .keyboar-btn {
+    margin: 0;
+} */

@@ -92,12 +92,16 @@ function configureAutoUpdater() {
 function createWindow() {
 
     mainWindow = new browserWindow({
-        width: 800,
-        height: 600
+        width: 1024,
+        height: 768,
+        minWidth: 800,
+        minHeight: 600
     });
 
     if (cfg.showDevTools) {
-        mainWindow.openDevTools({detached: true});
+        mainWindow.openDevTools({
+            detached: true
+        });
     }
 
     mainWindow.loadURL('file://' + __dirname + '/src/index.html');

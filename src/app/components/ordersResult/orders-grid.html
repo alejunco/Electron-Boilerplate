@@ -1,6 +1,5 @@
 <md-card ng-if="vm.activeCard==='order-error'" class="bs-slide">
-  <md-icon aria-label="Home" style="font-size:12em">error
-  </md-icon>
+  <md-icon>error</md-icon>
   <md-card-title>
     <md-card-title-text>
       <span class="md-headline">Order Failed</span>
@@ -9,8 +8,7 @@
 </md-card>
 
 <md-card ng-if="vm.activeCard==='order-success'" class="bs-slide">
-  <md-icon aria-label="Home" style="font-size:12em">thumb_up
-  </md-icon>
+  <md-icon>thumb_up</md-icon>
   <md-card-title>
     <md-card-title-text>
       <span class="md-headline">Order Procesed</span>
@@ -18,17 +16,16 @@
   </md-card-title>
 </md-card>
 
-<md-card ng-if="vm.activeCard==='order-not-found'" class="bs-slide">
-  <md-icon aria-label="Home" style="font-size:12em">find_in_page
-  </md-icon>
+<md-card class="bs-slide bs-result-card" ng-if="vm.activeCard==='order-not-found'">
+  <md-icon>find_in_page</md-icon>
   <md-card-title>
     <md-card-title-text>
-      <span class="md-headline">Order not found</span>
+      <span class="md-display-2">Order not found</span>
     </md-card-title-text>
   </md-card-title>
 </md-card>
 
-<md-card ng-if="vm.activeCard==='order'" class="bs-slide" ng-class="{'bs-gt-md':vm.mdMedia('gt-md'),'bs-lt-md':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
+<md-card class="bs-slide" ng-if="vm.activeCard==='order'" ng-class="{'bs-gt-md':vm.mdMedia('gt-md'),'bs-lt-md':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
   <md-card-title>
     <md-card-title-text>
       <span class="bs-display-2">{{vm.data[0].ProductName}}</span>
