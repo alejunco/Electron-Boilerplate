@@ -44,7 +44,7 @@
     "electron-updater": "^2.18.2",
     "jquery": "~2.1.4",
     "material-design-icons": "^3.0.1",
-    "moment": "~2.10.6",
+    "moment": "~2.20.1",
     "roboto-slab-fontface-kit": "^1.0.2",
     "angular-material-keyboard": "^0.0.9"
   }
