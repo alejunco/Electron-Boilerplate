@@ -1,16 +1,16 @@
-
 <div class="bs-container">
   <div class="bs-search-area">
     <md-content class="bs-query-input-content" layout="row" layout-align="center center">
       <md-input-container md-no-float class="md-block md-accent">
-        <input type="text" maxlength="7" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()" placeholder="Order #" ng-class="{'md-display-4':vm.mdMedia('gt-md'),'bs-display-4':vm.mdMedia('(min-width: 800px) and (max-width: 1279px)'),'bs-display-3':vm.mdMedia('(min-width: 10px) and (max-width: 799px)')}">
+        <input type="text" maxlength="7" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()" placeholder="Order #"
+          ng-class="{'md-display-4':vm.mdMedia('gt-md'),'bs-display-4':vm.mdMedia('(min-width: 800px) and (max-width: 1279px)'),'bs-display-3':vm.mdMedia('(min-width: 10px) and (max-width: 799px)')}">
       </md-input-container>
     </md-content>
     <md-content class="bs-numpad-container">
       <bs-numpad bs-model="vm.query" bs-keyup="vm.keyup" bs-keydown="vm.keydown"></bs-numpad>
     </md-content>
   </div>
-  <div class="bs-result-area" md-colors="::{background: 'myTheme-primary-400'}">
+  <div class="bs-result-area" md-colors="::{background: 'altTheme-primary-700'}">
     <orders-grid class="bs-full-size"></orders-grid>
   </div>
 
