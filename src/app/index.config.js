@@ -11,13 +11,15 @@
     $logProvider.debugEnabled(true);
 
     //angular material
-    $mdThemingProvider.theme('default')
-      .primaryPalette('amber', {
+    $mdThemingProvider.theme('myTheme')
+      .primaryPalette('blue', {
         'default': '400', 
       })
       .accentPalette('green', {
         'default': '400' // use shade 200 for default, and keep all other shades the same
       });
+      
+      $mdThemingProvider.setDefaultTheme('myTheme');
       // .backgroundPalette('brown');
   }
 

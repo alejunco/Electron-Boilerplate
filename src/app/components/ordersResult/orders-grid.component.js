@@ -82,7 +82,8 @@
           else
             vm.activeCard = 'order-not-found';
         });
-      }
+      } else
+        vm.activeCard = 'order-query-empty'
     });
   }
 })();

@@ -25,10 +25,6 @@ html {
     font-family: 'Roboto Slab', serif;
 }
 
-body {
-    background-color: #660707
-}
-
 [layout=row] {
     flex-direction: row;
 }
@@ -118,7 +114,6 @@ section.jumbotron h1 {
     justify-content: center;
     overflow: hidden;
     padding: 10px;
-    background-color: #1a77a0;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -186,7 +181,7 @@ input[type="number"] {
     opacity: 0;
 }
 
-.bs-result-card>md-icon {
+.bs-status-icon {
     font-size: 12em
 }
 

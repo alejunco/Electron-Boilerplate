@@ -1,30 +1,41 @@
 <md-content class="bs-gt-md md-padding bs-full-size" style="overflow: hidden;" layout="row" layout-align="center center">
   <md-card ng-if="vm.activeCard==='order-error'" class="bs-slide">
-    <md-icon>error</md-icon>
+    <md-icon class="bs-status-icon">error</md-icon>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline">Order Failed</span>
+        <span class="md-headline md-warn">Order Failed</span>
       </md-card-title-text>
     </md-card-title>
   </md-card>
 
   <md-card ng-if="vm.activeCard==='order-success'" class="bs-slide">
-    <md-icon>thumb_up</md-icon>
+    <md-icon class="bs-status-icon md-primary">thumb_up</md-icon>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline">Order Procesed</span>
+        <span class="md-display-1">Order Procesed</span>
       </md-card-title-text>
     </md-card-title>
   </md-card>
 
-  <md-card class="bs-slide bs-result-card" ng-if="vm.activeCard==='order-not-found'">
-    <md-icon>find_in_page</md-icon>
+  <md-card class="bs-slide" ng-if="vm.activeCard==='order-not-found'">
+    <md-icon class="bs-status-icon md-warn">find_in_page</md-icon>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-display-2">Order not found</span>
+        <span class="md-display-1">Order not found</span>
       </md-card-title-text>
     </md-card-title>
   </md-card>
+
+  <md-card class="bs-slide" md-colors="::{background: 'myTheme-primary-400'}" ng-if="vm.activeCard==='order-query-empty'">
+    <md-icon class="bs-status-icon md-primary">search</md-icon>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-display-1">Enter Order #</span>
+      </md-card-title-text>
+    </md-card-title>
+  </md-card>
+
+  
 
   <md-card class="bs-slide" ng-if="vm.activeCard==='order'" ng-class="{'bs-gt-md':vm.mdMedia('gt-md'),'bs-lt-md':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
     <md-card-title>
@@ -72,7 +83,7 @@
       </md-card-title-text>
       <md-card-title-media style="margin:5px;">
         <div class="md-media-lg card-media">
-          <img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="">
+          <img src="https://services.bstonecorp.com/transactionbroker/images/320498.png" alt="">
         </div>
       </md-card-title-media>
     </md-card-title>
