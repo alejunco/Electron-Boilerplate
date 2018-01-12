@@ -54,8 +54,12 @@
                 "MerchantId": 834,
                 "MerchantPassword": "m5494"
             }).then(function (response) {
+                var data = response.data; 
+                
+                if(data)
+                    data.imageUrl = 'http://prepaidupdate.blackstoneonline.com/api/images/' + data.ProductMainCode;
 
-                return [response.data];
+                return [data];
             }, function (error) {
                 return [];
                 // $log.error(error);
