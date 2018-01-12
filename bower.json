@@ -1,0 +1,20 @@
+{
+  "name": "orders-register",
+  "description": "sample electron build app",
+  "main": "main.js",
+  "authors": [
+    "Blackstone Merchant Services"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/alejunco/Orders-Register",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-loading-bar": "latest"
+  }
+}

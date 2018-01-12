@@ -29,6 +29,41 @@ html {
     flex-direction: row;
 }
 
+.overlay {
+    z-index: 1000;
+    background-color: rgba(3, 3, 3, 0.12);
+    /*I left your 'gray' background*/
+    display: block;
+    /*Not displayed by default*/
+    position: absolute;
+    /*This and the following properties will*/
+    top: 0;
+    /*make the overlay, the element will expand*/
+    right: 0;
+    /*so as to cover the whole body of the page*/
+    bottom: 0;
+    left: 0;
+}
+
+#loading-bar .bar {
+    background: rgb(255, 87, 34);
+    height: .2em;
+}
+
+#loading-bar-spinner {
+    top: 50%;
+    left: 50%;
+}
+
+#loading-bar-spinner .spinner-icon {
+    width: 60px;
+    height: 60px;
+    border: solid 4px transparent;
+    border-top-color: #0077c2;
+    border-left-color: #0077c2;
+    border-radius: 50%;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;

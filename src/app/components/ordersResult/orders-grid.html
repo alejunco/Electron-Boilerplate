@@ -1,4 +1,5 @@
 <md-content class="bs-gt-md md-padding bs-full-size" style="overflow: hidden;" layout="row" layout-align="center center">
+  
   <md-card ng-if="vm.activeCard==='order-error'" class="bs-slide">
     <md-icon class="bs-status-icon">error</md-icon>
     <md-card-title>
@@ -35,7 +36,7 @@
     </md-card-title>
   </md-card>
 
-  
+
 
   <md-card class="bs-slide" ng-if="vm.activeCard==='order'" ng-class="{'bs-gt-md':vm.mdMedia('gt-md'),'bs-lt-md':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
     <md-card-title>
