@@ -3,7 +3,7 @@
   <div class="bs-search-area">
     <md-content class="bs-query-input-content" layout="row" layout-align="center center">
       <md-input-container md-no-float class="md-block md-accent">
-        <input type="text" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()" placeholder="Order #" ng-class="{'md-display-4':vm.mdMedia('gt-md'),'bs-display-4':vm.mdMedia('(min-width: 800px) and (max-width: 1279px)'),'bs-display-3':vm.mdMedia('(min-width: 10px) and (max-width: 799px)')}">
+        <input type="text" maxlength="7" ng-model="vm.query" ng-keyup="vm.keyup()" ng-keydown="vm.keydown()" placeholder="Order #" ng-class="{'md-display-4':vm.mdMedia('gt-md'),'bs-display-4':vm.mdMedia('(min-width: 800px) and (max-width: 1279px)'),'bs-display-3':vm.mdMedia('(min-width: 10px) and (max-width: 799px)')}">
       </md-input-container>
     </md-content>
     <md-content class="bs-numpad-container">
@@ -11,6 +11,10 @@
     </md-content>
   </div>
   <div class="bs-result-area">
-    <orders-grid></orders-grid>
+    <orders-grid class="bs-full-size"></orders-grid>
   </div>
+
+  <!-- <md-content class="bs-gt-md md-padding" style="height:100%; overflow: hidden;" layout="column" layout-align="center center">
+    <orders-grid data="vm.results"></orders-grid>
+  </md-content> -->
 </div>
