@@ -12,18 +12,19 @@
 
     //angular material
     $mdThemingProvider.theme('altTheme')
-      .primaryPalette('blue')
-      .accentPalette('deep-orange', {
+      .primaryPalette('green')
+      .accentPalette('purple', {
         'default': '400'
-      });
+      })
+      .warnPalette('red')      
+      .backgroundPalette('grey');
 
     $mdThemingProvider.setDefaultTheme('altTheme');
-    // .backgroundPalette('brown');
 
     cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
     cfpLoadingBarProvider.includeSpinner = true;
-    cfpLoadingBarProvider.spinnerTemplate = 
-    ` <div class="overlay">
+    cfpLoadingBarProvider.spinnerTemplate =
+      ` <div class="overlay">
         <div id="loading-bar-spinner" >
           <div class="spinner-icon"></div>
         </div>

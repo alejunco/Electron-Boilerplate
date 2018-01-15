@@ -1,5 +1,5 @@
 process.env.NODE_ENV = isDev() ? 'development' : 'production';
-var cfg = require('./config/' + process.env.NODE_ENV + '.js');
+const cfg = require('./config/' + process.env.NODE_ENV + '.js');
 
 const electron = require('electron');
 const app = electron.app;

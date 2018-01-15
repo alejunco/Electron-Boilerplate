@@ -8,8 +8,8 @@
     HomeController.$inject = ['$log', '$state'];
 
     function HomeController($log, $state) {
-        var vm = this;
-        vm.title = 'Hello from AngularJS Home Controller';
+        let vm = this;
+        vm.title = 'Demo App';
         vm.goToState = goToState;
 
         activate();

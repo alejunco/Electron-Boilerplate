@@ -8,8 +8,8 @@
   OrdersController.$inject = ['$log', '$timeout', 'OrdersService', '$mdMedia', '$scope'];
 
   function OrdersController($log, $timeout, OrdersService, $mdMedia, $scope) {
-    var vm = this;
-    var timeout;
+    let vm = this;
+    let timeout;
 
     vm.mdMedia = $mdMedia;
 
@@ -38,7 +38,7 @@
     ////////////////
 
     function activate() {
-      vm.query = '1189150';
+      vm.query = '1194393';
       $timeout(function () {
         $scope.$broadcast('updatedQuery', {
           query: vm.query

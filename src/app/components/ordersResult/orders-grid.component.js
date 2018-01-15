@@ -20,7 +20,7 @@
   OrdersGridController.$inject = ['$log', '$scope', '$mdMedia', '$mdDialog', 'OrdersService'];
 
   function OrdersGridController($log, $scope, $mdMedia, $mdDialog, OrdersService) {
-    var vm = this;
+    let vm = this;
     vm.mdMedia = $mdMedia;
     vm.orderExecuted = false;
     vm.activeCard = '';
@@ -53,7 +53,7 @@
 
     function confirmExecuteOrder(ev, id) {
       // Appending dialog to document.body to cover sidenav in docs app
-      var confirm = $mdDialog.confirm()
+      let confirm = $mdDialog.confirm()
         .title('Confirm Execute')
         .textContent('Are you sure you want to execute this order?')
         .ariaLabel('Lucky day')

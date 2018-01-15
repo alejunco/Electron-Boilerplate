@@ -1,44 +1,44 @@
-<md-content class="bs-gt-md md-padding bs-full-size" style="overflow: hidden;" layout="row" layout-align="center center">
+<md-content class="bs-gt-md md-padding bs-full-size" style="overflow: hidden;" layout="row" layout-align="center center" md-colors="{background: 'altTheme-background-400-0.4'}">
   
-  <md-card ng-if="vm.activeCard==='order-error'" class="bs-slide">
+  <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-error'">
     <md-icon class="bs-status-icon">error</md-icon>
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline md-warn">Order Failed</span>
       </md-card-title-text>
     </md-card-title>
-  </md-card>
+  </div>
 
-  <md-card ng-if="vm.activeCard==='order-success'" class="bs-slide">
+  <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-success'" >
     <md-icon class="bs-status-icon md-primary">thumb_up</md-icon>
     <md-card-title>
       <md-card-title-text>
         <span class="md-display-1">Order Procesed</span>
       </md-card-title-text>
     </md-card-title>
-  </md-card>
+  </div>
 
-  <md-card class="bs-slide" ng-if="vm.activeCard==='order-not-found'">
-    <md-icon class="bs-status-icon md-warn">find_in_page</md-icon>
+  <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-not-found'">
+    <md-icon class="bs-status-icon md-warn" md-colors="{color: 'altTheme-warn-500'}">find_in_page</md-icon>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-display-1">Order not found</span>
+        <span class="md-display-1" md-colors="{color: 'altTheme-warn-600'}">Order not found</span>
       </md-card-title-text>
     </md-card-title>
-  </md-card>
+  </div>
 
-  <md-card class="bs-slide" ng-if="vm.activeCard==='order-query-empty'">
-    <md-icon class="bs-status-icon md-primary">search</md-icon>
+  <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-query-empty'">
+    <md-icon class="bs-status-icon md-primary" md-colors="{color: 'altTheme-background-500'}">search</md-icon>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-display-1">Enter Order #</span>
+        <span class="md-display-1" md-colors="{color: 'altTheme-background-600'}">Enter Order # ...</span>
       </md-card-title-text>
     </md-card-title>
-  </md-card>
+  </div>
 
 
 
-  <md-card class="bs-slide" ng-if="vm.activeCard==='order'" ng-class="{'bs-gt-md':vm.mdMedia('gt-md'),'bs-lt-md':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
+  <md-card class="bs-animation bs-product-card" ng-if="vm.activeCard==='order'" ng-class="{'bs-gt-md':vm.mdMedia('gt-md'),'bs-lt-md':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
     <md-card-title>
       <md-card-title-text>
         <span class="bs-display-2">{{vm.data[0].ProductName}}</span>
@@ -90,7 +90,7 @@
     </md-card-title>
     <md-card-actions layout="row" layout-align="end center">
       <md-button class="md-primary md-raised" ng-click="vm.confirmExecuteOrder($event, vm.data[0].OrderId)">Execute</md-button>
-      <md-button class="md-warn md-raised">Remove</md-button>
+      <!-- <md-button class="md-warn md-raised">Remove</md-button> -->
     </md-card-actions>
   </md-card>
 

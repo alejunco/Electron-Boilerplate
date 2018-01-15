@@ -12,7 +12,7 @@
         //
         // Creates:
         //
-        var directive = {
+        let directive = {
             bindToController: true,
             controller: BsNumpadController,
             controllerAs: 'vm',
@@ -31,7 +31,7 @@
     }
     /* @ngInject */
     function BsNumpadController($timeout) {
-        var vm = this;
+        let vm = this;
         vm.keys = [
             '7', '8', '9', 
             '4', '5', '6', 
@@ -75,13 +75,13 @@
     }
 
     function spliceString(str, index, count) {
-        var ar = str.split('');
+        let ar = str.split('');
         ar.splice(index, count);
         return ar.join('');
     }
 
     function TryParseInt(str, defaultValue) {
-        var retValue = defaultValue;
+        let retValue = defaultValue;
         if (str !== null) {
             if (str.length > 0) {
                 if (!isNaN(str)) {

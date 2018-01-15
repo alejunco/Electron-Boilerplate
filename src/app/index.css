@@ -111,13 +111,14 @@ section.jumbotron h1 {
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 4fr;
-    grid-gap: 10px 10px;
-    background-color: #ffffff;
+    /* grid-gap: 10px 10px; */
+    /* background-color: #ffffff; */
 }
 
-.bs-search-area>md-content {
+
+/* .bs-search-area>md-content {
     background-color: transparent;
-}
+} */
 
 .bs-query-input-content {
     overflow: hidden;
@@ -148,7 +149,6 @@ section.jumbotron h1 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 10px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -189,17 +189,39 @@ input[type="number"] {
     text-align: right;
 }
 
+.bs-status-card {
+    display: flex;
+    flex-direction: column;
+}
 
-/* .bs-slide {
-    transition: all ease-in 0.3s;
-} */
-
-.bs-slide.ng-enter {
-    transition: all ease-in 0.4s;
-    transform: translateX(-400px);
+.bs-animation.ng-enter {
+    transition: all 200ms ease-in;
+    transform: scale(0.5);
     opacity: 0;
 }
 
+.bs-animation.ng-enter.ng-enter-active {
+    transition: all 200ms ease-out;
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+
+/* 
+.bs-slide.ng-leave {
+    
+    transition: all 200ms ease-in;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.bs-slide.ng-leave.ng-leave-active {
+    transform: scale(2);
+    opacity: 0;
+} */
+
+
+/*
 .bs-slide.ng-enter.ng-enter-active {
     transform: translateX(0);
     opacity: 1;
@@ -207,14 +229,13 @@ input[type="number"] {
 
 .bs-slide.ng-leave {
     transition: all ease-in 0.35s;
-    /* transform: translateX(0); */
     opacity: 1;
 }
 
 .bs-slide.ng-leave.ng-leave-active {
     transform: translateX(400px);
     opacity: 0;
-}
+} */
 
 .bs-status-icon {
     font-size: 12em
@@ -227,13 +248,26 @@ input[type="number"] {
 .bs-numpad-btn .md-button {
     height: 100%;
     width: 100%;
-    font-size: 1.7em;
+    font-size: 5em;
+}
+
+.bs-numpad-btn .md-button-sm {
+    height: 100%;
+    width: 100%;
+    font-size: 3em;
 }
 
 .bs-numpad-container {
     overflow: visible;
     padding: 10px 15px 10px 10px;
 }
+
+.bs-product-card button {
+    font-size: 1.5em;
+    padding: 5px;
+}
+
+
 
 .bs-full-size {
     height: 100%;

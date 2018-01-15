@@ -8,7 +8,7 @@
     OrdersService.$inject = ['$q', '$log', '$http', '$timeout', 'BsApi'];
 
     function OrdersService($q, $log, $http, $timeout, BsApi) {
-        var orders = [{
+        let orders = [{
             mid: 5294,
             id: 6134
         }, {
@@ -24,7 +24,7 @@
             mid: 9845,
             id: 6419
         }]
-        var service = {
+        let service = {
             searchOrder: searchOrder,
             pendignOrder: pendignOrder,
             executeOrder: executeOrder
@@ -34,9 +34,9 @@
 
         ////////////////
         function searchOrder(query) {
-            var deferred = $q.defer();
+            let deferred = $q.defer();
 
-            var myResult = [];
+            let myResult = [];
 
             for (let index = 0; index < orders.length; index++) {
 
@@ -54,7 +54,7 @@
                 "MerchantId": 834,
                 "MerchantPassword": "m5494"
             }).then(function (response) {
-                var data = response.data; 
+                let data = response.data; 
                 
                 if(data)
                     data.imageUrl = 'http://prepaidupdate.blackstoneonline.com/api/images/' + data.ProductMainCode;
@@ -67,7 +67,7 @@
         }
 
         function executeOrder(id) {
-            // var deferred = $q.defer();
+            // let deferred = $q.defer();
 
             // deferred.reject({
             //     ErrorCode: 500
