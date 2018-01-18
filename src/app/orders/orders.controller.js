@@ -5,28 +5,29 @@
     .module('app')
     .controller('OrdersController', OrdersController);
 
-  OrdersController.$inject = ['$log', '$timeout', 'OrdersService', '$mdMedia', '$scope'];
+  OrdersController.$inject = ['$log', '$timeout', 'OrdersService', '$mdMedia', '$scope', '$rootScope'];
 
-  function OrdersController($log, $timeout, OrdersService, $mdMedia, $scope) {
+  function OrdersController($log, $timeout, OrdersService, $mdMedia, $scope, $rootScope) {
     let vm = this;
     let timeout;
 
     vm.mdMedia = $mdMedia;
+    vm.theme = $rootScope.theme;
 
     vm.results = [];
 
     vm.keyup = function () {
-      
-        timeout = $timeout(function () {
-          
-          $scope.$broadcast('updatedQuery', {
-            query: vm.query
-          });
-          // OrdersService.pendignOrder(vm.query).then(function (result) {
-          //   vm.results = result;
-          // });
-        }, 1000);
-      
+
+      timeout = $timeout(function () {
+
+        $scope.$broadcast('updatedQuery', {
+          query: vm.query
+        });
+        // OrdersService.pendignOrder(vm.query).then(function (result) {
+        //   vm.results = result;
+        // });
+      }, 1000);
+
     }
 
     vm.keydown = function () {
@@ -38,7 +39,7 @@
     ////////////////
 
     function activate() {
-      vm.query = '1194393';
+      // vm.query = '1195194';
       $timeout(function () {
         $scope.$broadcast('updatedQuery', {
           query: vm.query

@@ -1,5 +1,6 @@
-<md-content class="bs-gt-md md-padding bs-full-size" style="overflow: hidden;" layout="row" layout-align="center center" md-colors="{background: 'altTheme-background-400-0.4'}">
-  
+<md-content class="bs-gt-md md-padding bs-full-size" style="overflow: hidden;" layout="row" layout-align="center center"
+  md-colors="{background: 'default-background-400-0.4'}">
+
   <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-error'">
     <md-icon class="bs-status-icon">error</md-icon>
     <md-card-title>
@@ -9,85 +10,86 @@
     </md-card-title>
   </div>
 
-  <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-success'" >
-    <md-icon class="bs-status-icon md-primary">thumb_up</md-icon>
+  <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-success'">
+    <md-icon class="bs-status-icon" md-colors="{color: 'default-primary-500'}">thumb_up</md-icon>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-display-1">Order Procesed</span>
+        <span class="md-display-1" md-colors="{color: 'default-primary-600'}">Order Procesed</span>
       </md-card-title-text>
     </md-card-title>
   </div>
 
   <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-not-found'">
-    <md-icon class="bs-status-icon md-warn" md-colors="{color: 'altTheme-warn-500'}">find_in_page</md-icon>
+    <md-icon class="bs-status-icon" md-colors="{color: 'default-warn-500'}">find_in_page</md-icon>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-display-1" md-colors="{color: 'altTheme-warn-600'}">Order not found</span>
+        <span class="md-display-1" md-colors="{color: 'default-warn-600'}">Order not found</span>
       </md-card-title-text>
     </md-card-title>
   </div>
 
   <div class="bs-status-card bs-animation" ng-if="vm.activeCard==='order-query-empty'">
-    <md-icon class="bs-status-icon md-primary" md-colors="{color: 'altTheme-background-500'}">search</md-icon>
+    <md-icon class="bs-status-icon md-primary" md-colors="{color: 'default-background-500'}">search</md-icon>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-display-1" md-colors="{color: 'altTheme-background-600'}">Enter Order # ...</span>
+        <span class="md-display-1" md-colors="{color: 'default-background-600'}">Enter Order # ...</span>
       </md-card-title-text>
     </md-card-title>
   </div>
-
-
 
   <md-card class="bs-animation bs-product-card" ng-if="vm.activeCard==='order'" ng-class="{'bs-gt-md':vm.mdMedia('gt-md'),'bs-lt-md':vm.mdMedia('(min-width: 10px) and (max-width: 1279px)')}">
     <md-card-title>
       <md-card-title-text>
         <span class="bs-display-2">{{vm.data[0].ProductName}}</span>
-        <md-content layout="column" layout-align="center center">
-          <table class="card-details">
-            <tr class="bs-title">
-              <td>Amount:</td>
-              <td>
-                <b>{{vm.data[0].Amount | currency}}</b>
-              </td>
-            </tr>
-            <tr class="bs-title">
-              <td>Tax:</td>
-              <td>
-                <b>{{vm.data[0].Tax | currency}}</b>
-              </td>
-            </tr>
-            <tr class="bs-title">
-              <td>Fee:</td>
-              <td>
-                <b>{{vm.data[0].Fee | currency}}</b>
-              </td>
-            </tr>
-            <tr class="bs-title">
-              <td>E911:</td>
-              <td>
-                <b>{{vm.data[0].E911 | currency}}</b>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <hr>
-              </td>
-            </tr>
-            <tr class="bs-display-1">
-              <td>Total Amount:</td>
-              <td>
-                <b>{{vm.data[0].TotalAmount | currency}}</b>
-              </td>
-            </tr>
-          </table>
-        </md-content>
+
       </md-card-title-text>
+
       <md-card-title-media style="margin:5px;">
-        <div class="md-media-lg card-media">
-          <img ng-src="{{vm.data[0].imageUrl}}"  alt="">
+        <div class="md-media-lg card-media" style="height:90px; padding-left:10px">
+          <img ng-src="{{vm.data[0].imageUrl}}" alt="">
         </div>
       </md-card-title-media>
     </md-card-title>
+    <md-content layout="column" layout-align="center center">
+
+      <table class="card-details">
+        <tr class="bs-title">
+          <td>Amount:</td>
+          <td>
+            <b>{{vm.data[0].Amount | currency}}</b>
+          </td>
+        </tr>
+        <tr class="bs-title">
+          <td>Tax:</td>
+          <td>
+            <b>{{vm.data[0].Tax | currency}}</b>
+          </td>
+        </tr>
+        <tr class="bs-title">
+          <td>Fee:</td>
+          <td>
+            <b>{{vm.data[0].Fee | currency}}</b>
+          </td>
+        </tr>
+        <tr class="bs-title">
+          <td>E911:</td>
+          <td>
+            <b>{{vm.data[0].E911 | currency}}</b>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <hr>
+          </td>
+        </tr>
+        <tr class="bs-display-1">
+          <td>Total Amount:</td>
+          <td>
+            <b>{{vm.data[0].TotalAmount | currency}}</b>
+          </td>
+        </tr>
+      </table>
+    </md-content>
     <md-card-actions layout="row" layout-align="end center">
       <md-button class="md-primary md-raised" ng-click="vm.confirmExecuteOrder($event, vm.data[0].OrderId)">Execute</md-button>
       <!-- <md-button class="md-warn md-raised">Remove</md-button> -->

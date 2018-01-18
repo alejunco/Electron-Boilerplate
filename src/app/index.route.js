@@ -8,12 +8,12 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/home/home.html',
-        controller: 'HomeController',
-        controllerAs: 'vm'
-      })
+      // .state('home', {
+      //   url: '/',
+      //   templateUrl: 'app/home/home.html',
+      //   controller: 'HomeController',
+      //   controllerAs: 'vm'
+      // })
       .state('orders', {
         url: '/orders',
         templateUrl: 'app/orders/orders.html',
@@ -21,7 +21,7 @@
         controllerAs: 'vm'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/orders');
   }
 
 })();

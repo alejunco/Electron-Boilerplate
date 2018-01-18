@@ -8,7 +8,8 @@ const browserWindow = electron.BrowserWindow;
 const log = require("electron-log");
 const autoUpdater = require("electron-updater").autoUpdater;
 
-require('electron-reload')(__dirname);
+if (process.env.NODE_ENV == 'development')
+    require('electron-reload')(__dirname);
 
 configureElectronLogging();
 configureAutoUpdater();
@@ -95,7 +96,8 @@ function createWindow() {
         width: 1024,
         height: 768,
         minWidth: 800,
-        minHeight: 600
+        minHeight: 600,
+        show: false
     });
 
     if (cfg.showDevTools) {
@@ -103,6 +105,10 @@ function createWindow() {
             detached: true
         });
     }
+
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.show();
+    })
 
     mainWindow.loadURL('file://' + __dirname + '/src/index.html');
 

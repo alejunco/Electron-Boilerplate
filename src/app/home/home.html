@@ -1,3 +1,36 @@
-<h1>{{vm.title}}</h1>
-<button ng-click="vm.goToState('orders')">Go To Orders</button>
-<p>v0.1.1</p>
+<div md-theme="{{vm.theme}}" md-theme-watch="true">
+    <h1>{{vm.title}}</h1>
+    <button ng-click="vm.goToState('orders')">Go To Orders</button>
+    <p>v0.1.1</p>
+
+
+    <pre>{{vm.theme | json}}</pre>
+    <p>Selected Value:
+        <span class="radioValue">{{ data.group1 }}</span>
+    </p>
+
+    <md-radio-group ng-model="vm.theme">
+        <md-radio-button value="default" class="md-primary">Default</md-radio-button>
+        <md-radio-button value="indigo"> Indigo </md-radio-button>
+        <md-radio-button value="lime">Lime</md-radio-button>
+    </md-radio-group>
+
+    <md-button href="#" class="md-primary md-raised" ng-click=changeTheme()>
+        Change theme
+    </md-button>
+    <div class="thing">
+        Current theme is {{vm.theme}}.
+    </div>
+    <div>
+        <md-button href="#" class="md-primary md-raised">
+            Primary
+        </md-button>
+        <md-button href="#" class="md-raised md-accent">
+            Accent
+        </md-button>
+        <md-button href="#" class="md-raised md-warn">
+            Warn
+        </md-button>
+    </div>
+
+</div>

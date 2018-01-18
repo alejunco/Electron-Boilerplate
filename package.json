@@ -18,7 +18,18 @@
         "owner": "alejunco",
         "repo": "Orders-Register"
       }
-    ]
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32",
+            "x64"
+          ]
+        }
+      ]
+    }
   },
   "repository": {
     "url": "https://github.com/alejunco/Orders-Register"
@@ -27,25 +38,11 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.7.10",
-    "electron-builder": "^19.52.1"
+    "electron-builder": "^19.52.1",
+    "electron-reload": "^1.2.2"
   },
   "dependencies": {
-    "@uirouter/angularjs": "^1.0.12",
-    "angular": "~1.6.8",
-    "angular-animate": "~1.6.8",
-    "angular-aria": "~1.6.8",
-    "angular-cookies": "~1.6.8",
-    "angular-material": "^1.1.5",
-    "angular-messages": "~1.6.8",
-    "angular-sanitize": "~1.6.8",
-    "animate.css": "~3.4.0",
-    "electron-log": "^2.2.13",
-    "electron-reload": "^1.2.2",
-    "electron-updater": "^2.18.2",
-    "jquery": "~2.1.4",
-    "material-design-icons": "^3.0.1",
-    "moment": "~2.20.1",
-    "roboto-slab-fontface-kit": "^1.0.2",
-    "angular-material-keyboard": "^0.0.9"
+    "electron-log": "~2.2.14",
+    "electron-updater": "^2.18.2"
   }
 }

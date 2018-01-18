@@ -11,16 +11,27 @@
     $logProvider.debugEnabled(true);
 
     //angular material
-    $mdThemingProvider.theme('altTheme')
+    $mdThemingProvider.theme('default')
       .primaryPalette('green')
       .accentPalette('purple', {
         'default': '400'
       })
-      .warnPalette('red')      
+      .warnPalette('red')
       .backgroundPalette('grey');
 
-    $mdThemingProvider.setDefaultTheme('altTheme');
+    $mdThemingProvider.theme('lime')
+      .primaryPalette('lime')
+      .accentPalette('orange')
+      .warnPalette('blue');
 
+    $mdThemingProvider.theme('indigo')
+      .primaryPalette('indigo')
+      .accentPalette('pink');
+
+    $mdThemingProvider.setDefaultTheme('default');
+    $mdThemingProvider.alwaysWatchTheme(true);
+
+    cfpLoadingBarProvider.latencyThreshold = 500;
     cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.spinnerTemplate =
