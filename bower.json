@@ -25,7 +25,13 @@
     "angular-sanitize": "~1.6.8",
     "angular-loading-bar": "latest",
     "angular-ui-router": "~1.0.13",
-    "moment": "~2.20.1",
     "roboto-slab-fontface": "latest"
+  },
+  "cInstall": {
+    "source": {
+      "angular": {
+        "angular.js": "angular.js"
+      }
+    }
   }
 }

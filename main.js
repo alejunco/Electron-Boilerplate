@@ -5,6 +5,7 @@ const electron = require('electron');
 const app = electron.app;
 const browserWindow = electron.BrowserWindow;
 
+
 const log = require("electron-log");
 const autoUpdater = require("electron-updater").autoUpdater;
 
@@ -99,6 +100,8 @@ function createWindow() {
         minHeight: 600,
         show: false
     });
+
+    mainWindow.webContents.session.setProxy({},()=>{});
 
     if (cfg.showDevTools) {
         mainWindow.openDevTools({
