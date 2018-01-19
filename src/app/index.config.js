@@ -31,9 +31,9 @@
     $mdThemingProvider.setDefaultTheme('default');
     $mdThemingProvider.alwaysWatchTheme(true);
 
-    cfpLoadingBarProvider.latencyThreshold = 500;
+    cfpLoadingBarProvider.latencyThreshold = 20;
     cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
-    cfpLoadingBarProvider.includeSpinner = true;
+    cfpLoadingBarProvider.includeSpinner = false;
     cfpLoadingBarProvider.spinnerTemplate =
       ` <div class="overlay">
         <div id="loading-bar-spinner" >
