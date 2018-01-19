@@ -14,6 +14,7 @@ const autoUpdater = require("electron-updater").autoUpdater;
 
 let win = null;
 
+
 configureElectronLogging();
 
 
@@ -29,7 +30,9 @@ if(!process.argv.find(o => o === packageJson.appKey))
 const shouldQuit = app.makeSingleInstance((commandLine, workingDirectory) => {
     log.info('Command Line params: ' + commandLine);
     // Someone tried to run a second instance, we should focus our window.
+
     var key = commandLine[2];
+
     if (win) {
         if (win.isMinimized()) {
             log.info('Main Window is minimized');
@@ -39,7 +42,6 @@ const shouldQuit = app.makeSingleInstance((commandLine, workingDirectory) => {
         log.info('Focusing Main Window...');
         win.focus();
     }
-
 });
 
 if (shouldQuit) {
@@ -57,6 +59,7 @@ else {
         configureMainWindow();
 
         autoUpdater.checkForUpdatesAndNotify();
+
     });
 
     app.on('window-all-closed', function () {
