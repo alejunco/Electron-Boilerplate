@@ -1,43 +1,67 @@
 process.env.NODE_ENV = isDev() ? 'development' : 'production';
 const cfg = require('./config/' + process.env.NODE_ENV + '.js');
+if (process.env.NODE_ENV == 'development')
+    require('electron-reload')(__dirname);
 
-const electron = require('electron');
-const app = electron.app;
-const browserWindow = electron.BrowserWindow;
-
+const {
+    BrowserWindow,
+    app
+} = require('electron');
 
 const log = require("electron-log");
 const autoUpdater = require("electron-updater").autoUpdater;
 
-if (process.env.NODE_ENV == 'development')
-    require('electron-reload')(__dirname);
+let win = null;
 
 configureElectronLogging();
-configureAutoUpdater();
 
-app.on('ready', _ => {
-    log.info('app ready...');
+const shouldQuit = app.makeSingleInstance((commandLine, workingDirectory) => {
+    log.info('Command Line params: ' + commandLine);
+    // Someone tried to run a second instance, we should focus our window.
+    if (win) {
+        if (win.isMinimized()) {
+            log.info('Main Window is minimized');
+            win.restore();
+        }
 
-    createWindow();
-
-    autoUpdater.checkForUpdatesAndNotify();
-});
-
-app.on('window-all-closed', function () {
-    // On OS X it is common for applications and their menu bar
-    // to stay active until the user quits explicitly with Cmd + Q
-    if (process.platform !== 'darwin') {
-        app.quit()
+        log.info('Focusing Main Window...');
+        win.focus();
     }
+
 });
 
-app.on('activate', function () {
-    // On OS X it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (mainWindow === null) {
-        createWindow()
-    }
-});
+if (shouldQuit) {
+    log.info('Application instance running...');
+    log.info('Exiting...');
+    app.quit()
+    return
+} else {
+    configureAutoUpdater();
+
+    app.on('ready', _ => {
+        log.info('app ready...');
+
+        configureMainWindow();
+
+        autoUpdater.checkForUpdatesAndNotify();
+    });
+
+    app.on('window-all-closed', function () {
+        // On OS X it is common for applications and their menu bar
+        // to stay active until the user quits explicitly with Cmd + Q
+        if (process.platform !== 'darwin') {
+            app.quit()
+        }
+    });
+
+    app.on('activate', function () {
+        // On OS X it's common to re-create a window in the app when the
+        // dock icon is clicked and there are no other windows open.
+        if (win === null) {
+            configureMainWindow()
+        }
+    });
+}
 
 function configureElectronLogging() {
     const fs = require('fs');
@@ -91,9 +115,8 @@ function configureAutoUpdater() {
     });
 }
 
-function createWindow() {
-
-    mainWindow = new browserWindow({
+function configureMainWindow() {
+    win = new BrowserWindow({
         width: 1024,
         height: 768,
         minWidth: 800,
@@ -101,22 +124,24 @@ function createWindow() {
         show: false
     });
 
-    mainWindow.webContents.session.setProxy({},()=>{});
+    log.info('BrowserWindow created...');
+
+    win.webContents.session.setProxy({}, () => {});
 
     if (cfg.showDevTools) {
-        mainWindow.openDevTools({
+        win.openDevTools({
             detached: true
         });
     }
 
-    mainWindow.once('ready-to-show', () => {
-        mainWindow.show();
+    win.once('ready-to-show', () => {
+        win.show();
     })
 
-    mainWindow.loadURL('file://' + __dirname + '/src/index.html');
+    win.loadURL('file://' + __dirname + '/src/index.html');
 
-    mainWindow.on('closed', _ => {
-        mainWindow = null;
+    win.on('closed', _ => {
+        win = null;
     })
 }
 
