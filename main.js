@@ -1,5 +1,6 @@
 process.env.NODE_ENV = isDev() ? 'development' : 'production';
 const cfg = require('./config/' + process.env.NODE_ENV + '.js');
+const packageJson = require('./package.json');
 if (process.env.NODE_ENV == 'development')
     require('electron-reload')(__dirname);
 
@@ -15,9 +16,20 @@ let win = null;
 
 configureElectronLogging();
 
+
+//Close application if it is not open with the AppKey that is on {packageJson.appKey}
+if(!process.argv.find(o => o === packageJson.appKey))
+{
+    log.info("Orders-Register has not been open as expected");
+    app.quit();
+    return;
+}
+
+
 const shouldQuit = app.makeSingleInstance((commandLine, workingDirectory) => {
     log.info('Command Line params: ' + commandLine);
     // Someone tried to run a second instance, we should focus our window.
+    var key = commandLine[2];
     if (win) {
         if (win.isMinimized()) {
             log.info('Main Window is minimized');
@@ -35,7 +47,8 @@ if (shouldQuit) {
     log.info('Exiting...');
     app.quit()
     return
-} else {
+} 
+else {
     configureAutoUpdater();
 
     app.on('ready', _ => {
