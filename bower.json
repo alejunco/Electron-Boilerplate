@@ -26,12 +26,5 @@
     "angular-loading-bar": "latest",
     "angular-ui-router": "~1.0.13",
     "roboto-slab-fontface": "latest"
-  },
-  "cInstall": {
-    "source": {
-      "angular": {
-        "angular.js": "angular.js"
-      }
-    }
   }
 }
