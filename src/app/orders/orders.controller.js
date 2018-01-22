@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  
+
   angular
     .module('app')
     .controller('OrdersController', OrdersController);
@@ -39,12 +41,19 @@
     ////////////////
 
     function activate() {
-      // vm.query = '1195194';
+
+      vm.query = '';
       $timeout(function () {
         $scope.$broadcast('updatedQuery', {
           query: vm.query
         });
-      }, 1)
+      }, 100)
+
+      // angular.element(document).ready(function () {
+      //   $scope.$broadcast('updatedQuery', {
+      //     query: vm.query
+      //   });
+      // });
 
       // OrdersService.pendignOrder(vm.query).then(function (result) {
       //   vm.results = result;

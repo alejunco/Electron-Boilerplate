@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "description": "sample electron build app",
   "main": "main.js",
+  "appKey": "94e501054b2a1f8664b476430bc32857",
   "scripts": {
-    "start": "electron .",
+    "start": "electron . 94e501054b2a1f8664b476430bc32857",
     "pack": "build --dir",
     "build": "build -w",
     "publish": "build --win -p always"
