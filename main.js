@@ -1,27 +1,36 @@
+// import { request } from "http";
+
 process.env.NODE_ENV = isDev() ? 'development' : 'production';
 const cfg = require('./config/' + process.env.NODE_ENV + '.js');
 const packageJson = require('./package.json');
+const autoUpdater = require("electron-updater").autoUpdater;
+const log = require("electron-log");
+
+const device_identifier = require("./src/logic/device_identifier");
+const {events} = require("./src/logic/constant");
+
+configureElectronLogging();
+
 if (process.env.NODE_ENV == 'development')
     require('electron-reload')(__dirname);
 
 const {
     BrowserWindow,
-    app
+    app,
+    ipcMain
 } = require('electron');
 
-const log = require("electron-log");
-const autoUpdater = require("electron-updater").autoUpdater;
 
 let win = null;
 
 
-configureElectronLogging();
+// console.log(device_identifier.getMacAddres());
 
 
 //Close application if it is not open with the AppKey that is on {packageJson.appKey}
 if(!process.argv.find(o => o === packageJson.appKey))
 {
-    log.info("Orders-Register has not been open as expected");
+    log.info("Orders-Register has not been open with the right AppKey");
     app.quit();
     return;
 }
@@ -163,4 +172,25 @@ function configureMainWindow() {
 
 function isDev() {
     return process.mainModule.filename.indexOf('app.asar') === -1;
+}
+
+
+ipcMain.on(events.request.macAddress, _=>{
+    var mac = device_identifier.getMacAddres();
+    win.webContents.send(events.response.macAddress, mac);
+})
+
+
+
+ipcMain.on('remote-exec', (evn, task) => {
+    let respose = obj[task.method](task.arg);
+    win.webContents.send(task.callback, respose);
+})
+
+var obj = {}
+obj.Xyz = Xyz;
+
+function Xyz(arg) 
+{
+    return "Que vola Render";
 }

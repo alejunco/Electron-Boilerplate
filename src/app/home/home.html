@@ -4,10 +4,19 @@
     <p>v0.1.1</p>
 
 
+    <button ng-click="vm.getMacAddress()">GetMacAddress</button>
+    <div>{{vm.macAdress}}</div>
+
+    <button ng-click="vm.getXYZ()">GetMacXYZ</button>
+    <div>{{vm.xyz}}</div>
+
     <pre>{{vm.theme | json}}</pre>
     <p>Selected Value:
         <span class="radioValue">{{ data.group1 }}</span>
     </p>
+
+
+    
 
     <md-radio-group ng-model="vm.theme">
         <md-radio-button value="default" class="md-primary">Default</md-radio-button>
